@@ -2,14 +2,28 @@
 import { getCollection } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
 
+export async function getStaticPaths() {
+  const posts = (await getCollection("blog")).filter(p => !p.data.draft);
+
+  const tags = new Set<string>();
+  for (const post of posts) {
+    for (const t of post.data.tags ?? []) tags.add(t.trim().toLowerCase());
+  }
+
+  return [...tags].map((tag) => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+
 const posts = (await getCollection("blog"))
   .filter(p => !p.data.draft)
+  .filter(p => (p.data.tags ?? []).map((t: string) => t.trim().toLowerCase()).includes(tag))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BlogPost
-  title="Blogue du Coach Techno"
-  description="Liste de tous les articles du blog"
+  title={`Tag: ${tag}`}
+  description={`Articles avec le tag ${tag}`}
   pubDate={new Date()}
 >
   <ul>
