@@ -46,6 +46,11 @@ Mettre en place la configuration Cursor, initialiser le dépôt Git, construire 
 - Amélioré les H1 pour inclure les mots-clés SEO : « Services IA et automatisation », « Jimmy Gilbert, consultant IA », « Contactez-moi pour une consultation IA gratuite », « Blog — IA et automatisation pour PME ».
 - Allongé les meta descriptions de `services`, `a-propos` et `contact` pour atteindre la cible de 150-160 caractères.
 - Ajouté des liens internes croisés dans les sections CTA de `services`, `coaching-technologique`, `a-propos` et `contact` pour améliorer le maillage interne.
+- Uniformisé les couleurs des hyperliens et éléments typographiques à l'échelle du site : liens jaune `#FACC15` par défaut → bleu `#22D3EE` au hover, gras et emphase en bleu `#22D3EE`, définis via `@layer base` dans `global.css`.
+- Ajouté la variable `--color-jaune: #facc15` dans `@theme` pour conserver le jaune d'origine sans conflits avec la couleur native `yellow` de Tailwind v4.
+- Mis à jour `.btn-secondary` : bordure et texte jaune par défaut, bleu au hover (`hover:border-accent-400 hover:text-accent-400`).
+- Ajouté `border-b border-white/50` sur le `<header>` pour séparer visuellement l'en-tête du contenu.
+- Retiré les classes de couleur explicites (`text-brand-400 hover:text-brand-300`) sur les liens inline des pages `a-propos`, `contact`, `services` et `coaching-technologique` pour qu'ils héritent du style global.
 
 **Difficultés / bugs**  
 - `node_modules` inclus dans le premier commit par erreur ; confusion entre le dépôt racine (branche `2025-12-15-z8ih-2a12a`) et le sous-dépôt `project/` (branche `main`).
