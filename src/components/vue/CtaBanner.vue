@@ -1,3 +1,18 @@
+<script setup lang="ts">
+interface Props {
+  title: string;
+  subtitle: string;
+  cta: string;
+  href: string;
+  badge?: string;
+  variant?: 'light' | 'dark';
+}
+
+withDefaults(defineProps<Props>(), {
+  variant: 'light',
+});
+</script>
+
 <template>
   <div
     :class="[
@@ -46,15 +61,5 @@
   </div>
 </template>
 
-<script setup lang="ts">
-withDefaults(defineProps<{
-  title: string;
-  subtitle: string;
-  cta: string;
-  href: string;
-  badge?: string;
-  variant?: 'light' | 'dark';
-}>(), {
-  variant: 'light',
-});
-</script>
+<style scoped>
+</style>

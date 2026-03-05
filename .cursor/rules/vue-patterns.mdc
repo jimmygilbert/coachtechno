@@ -29,6 +29,10 @@ const emit = defineEmits<{
     <!-- contenu -->
   </div>
 </template>
+
+<style scoped>
+</style>
+
 ```
 
 ## Règles

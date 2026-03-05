@@ -23,7 +23,7 @@ Mettre en place la configuration Cursor, initialiser le dépôt Git, construire 
 **Travail réalisé (8–10 lignes min)**  
 - Exploré la structure du projet pour identifier le stack : Astro v5, Vue 3, Tailwind CSS v4, TypeScript strict. Constaté que le profil Cursor et la rule existante (`bootstrap-ui.mdc`) provenaient d'un autre projet et ne correspondaient pas.
 - Créé 4 rules Cursor ciblées : `project-context.mdc` (alwaysApply), `astro-patterns.mdc`, `vue-patterns.mdc`, `tailwind-v4.mdc`. Mis à jour `default.json` (modèle `auto`, systemPrompt réécrit pour CoachTechno).
-- Créé les commandes IA `/new-page`, `/new-blog-post`, `/new-vue-component` et `/seo-audit`.
+- Créé les commandes IA `/new-page`, `/new-blog-post`, `/new-vue-component`, `/seo-audit`, `/geo-audit`, `/a11y-audit` et `/security-audit`.
 - Créé le dépôt GitHub `coachtechno`, effectué le premier commit (`README.md`, commit `4d47fb5`), puis initialisé la structure complète Astro v5 + Vue 3 + Tailwind v4 (commit `abbb61d`).
 - Créé tous les fichiers de configuration manuellement (`package.json`, `astro.config.mjs`, `tsconfig.json`) car `npm create astro` refusait de s'exécuter dans un dossier non vide.
 - Créé le design system Tailwind : palette `brand`/`accent`, typographie Lexend + Inter, classes utilitaires `.btn-primary`, `.btn-secondary`, `.card`, `.container-site`, `.section-pad`.
@@ -34,6 +34,9 @@ Mettre en place la configuration Cursor, initialiser le dépôt Git, construire 
 - Migré de `@astrojs/tailwind` vers `@tailwindcss/vite` et déplacé toute la configuration Tailwind dans `global.css` via `@theme`.
 - Corrigé l'erreur TypeScript `File 'astro/tsconfigs/strict' not found` et l'erreur CSS `Cannot apply unknown utility class font-heading`. Lancé `astro build` avec succès : 9 pages générées sans erreur.
 - Mis à jour `.gitignore`, réécrit `README.md` (7 sections) et ajouté `.cursorignore`.
+- Rédigé le backlog complet : 19 récits utilisateurs (RU1–RU19) et 37 tâches réparties en 9 sections, basé sur les documents `recits_utilisateurs.md`, `architecture.md` et `plan_developpement.md`.
+- Consolidé le journal de bord (4 séances fusionnées en une seule séance cohérente).
+- Refactorisé les 3 composants Vue 3 pour respecter la rule `vue-patterns.mdc` : ordre `<script>` → `<template>` → `<style scoped>`, interfaces TypeScript nommées (`FormData`, `FormErrors`, `FaqItem`, `Props`), pattern try/catch/finally pour les appels async dans `ContactForm.vue`.
 
 **Difficultés / bugs**  
 - `node_modules` inclus dans le premier commit par erreur ; confusion entre le dépôt racine (branche `2025-12-15-z8ih-2a12a`) et le sous-dépôt `project/` (branche `main`).
