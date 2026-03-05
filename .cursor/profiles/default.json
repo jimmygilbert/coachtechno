@@ -1,18 +1,21 @@
 {
   "name": "Default",
-  "description": "Profil par défaut pour le développement général du projet",
-  "model": "claude-sonnet-4",
+  "description": "Profil par défaut pour le site CoachTechno — Astro v5 + Vue 3 + Tailwind v4",
+  "model": "auto",
   "temperature": 0.5,
   "agentMode": true,
   "alwaysApply": true,
   "rules": [
-    ".cursor/rules/architecture-vue.mdc"
+    ".cursor/rules/project-context.mdc",
+    ".cursor/rules/astro-patterns.mdc",
+    ".cursor/rules/vue-patterns.mdc",
+    ".cursor/rules/tailwind-v4.mdc"
   ],
-  "systemPrompt": "Tu es un développeur Vue 3 + TypeScript expérimenté travaillant sur une application de suivi de bogues. Tu dois respecter l'architecture du projet, utiliser Pinia pour le state management, Vue Router pour la navigation, Bootstrap 5 pour le styling, et Vee-Validate pour les formulaires. Respecte les récits utilisateurs et les bonnes pratiques du projet.",
+  "systemPrompt": "Tu es un développeur Astro v5 + Vue 3 + TypeScript expérimenté travaillant sur le site vitrine CoachTechno. Tu utilises Tailwind CSS v4 pour le styling, les Content Collections Astro pour le blog, et Vue 3 Composition API (script setup) uniquement pour les composants interactifs. Le contenu est en français québécois. Tu respectes les conventions du projet : alias @/ pour les imports, TypeScript strict, et pages/layouts toujours en .astro.",
   "behavior": {
     "focus": "general-development",
     "verbosity": "balanced",
     "followArchitecture": true,
-    "respectUserStories": true
+    "language": "fr"
   }
 }

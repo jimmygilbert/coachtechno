@@ -1,0 +1,57 @@
+---
+description: Conventions pour les composants et pages Astro
+globs: src/**/*.astro
+alwaysApply: false
+---
+
+# Conventions Astro
+
+## Structure d'une page
+
+```astro
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import MonComposant from '@/components/MonComposant.astro';
+
+const title = 'Titre de la page';
+---
+
+<MainLayout title={title}>
+  <MonComposant />
+</MainLayout>
+```
+
+## Règles
+
+- Toujours utiliser `MainLayout` ou `BlogPostLayout` — jamais de page sans layout
+- Importer avec l'alias `@/` (pas de chemins relatifs `../../`)
+- Les composants Vue interactifs s'importent avec `client:load` ou `client:visible`
+
+```astro
+import ContactForm from '@/components/vue/ContactForm.vue';
+<ContactForm client:load />
+```
+
+- Préférer `client:visible` pour les composants bas de page (perf)
+- Props Astro typées avec TypeScript dans le frontmatter
+
+```astro
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = '' } = Astro.props;
+---
+```
+
+## Content Collections (blog)
+
+```astro
+---
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+---
+```
+
+- Schema défini dans `src/content/config.ts` — ne pas le modifier sans raison

@@ -1,0 +1,34 @@
+---
+description: Contexte général du projet CoachTechno — stack, structure et conventions
+alwaysApply: true
+---
+
+# Contexte du projet CoachTechno
+
+Site vitrine pour services de coaching technologique.
+
+## Stack technique
+
+- **Astro v5** — framework SSG, pages et layouts statiques
+- **Vue 3** — composants interactifs uniquement (formulaires, FAQ, CTA)
+- **Tailwind CSS v4** — styles utilitaires (syntaxe v4, pas v3)
+- **TypeScript** — mode strict activé
+
+## Structure
+
+```
+src/
+├── components/         ← .astro statiques + vue/ pour les interactifs
+├── content/blog/       ← Articles Markdown via Content Collections
+├── layouts/            ← MainLayout.astro, BlogPostLayout.astro
+├── pages/              ← Routage fichier-based Astro
+└── styles/global.css   ← Tailwind v4 global
+```
+
+## Conventions
+
+- Alias `@/*` → `./src/*` (utiliser toujours l'alias)
+- Vue 3 uniquement pour les parties nécessitant de l'interactivité
+- Pages et layouts toujours en `.astro`
+- Contenu en français (site québécois)
+- TypeScript strict — pas de `any`, toujours typer les props

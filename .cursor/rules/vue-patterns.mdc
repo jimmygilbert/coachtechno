@@ -1,0 +1,75 @@
+---
+description: Conventions Vue 3 Composition API pour les composants interactifs
+globs: src/components/vue/**/*.vue
+alwaysApply: false
+---
+
+# Conventions Vue 3
+
+## Structure d'un composant
+
+```vue
+<script setup lang="ts">
+interface Props {
+  titre: string;
+  items?: string[];
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  items: () => [],
+});
+
+const emit = defineEmits<{
+  submit: [data: FormData];
+}>();
+</script>
+
+<template>
+  <div>
+    <!-- contenu -->
+  </div>
+</template>
+```
+
+## Règles
+
+- Toujours `<script setup lang="ts">` — pas d'Options API
+- Props typées avec `defineProps<Interface>()` — pas de `PropType`
+- Pas de `any` — typer toutes les variables et props
+- Nommer les composants en PascalCase (`ContactForm.vue`)
+
+## Réactivité
+
+```typescript
+// ✅ BIEN
+const isOpen = ref(false);
+const formData = reactive({ nom: '', email: '' });
+
+// ❌ ÉVITER
+const data: any = ref(null);
+```
+
+## Gestion des erreurs async
+
+```typescript
+// ✅ BIEN
+const isLoading = ref(false);
+const error = ref<string | null>(null);
+
+async function soumettre() {
+  isLoading.value = true;
+  error.value = null;
+  try {
+    await envoyerFormulaire(formData);
+  } catch (e) {
+    error.value = 'Une erreur est survenue. Veuillez réessayer.';
+  } finally {
+    isLoading.value = false;
+  }
+}
+```
+
+## Intégration avec Astro
+
+- Utiliser `client:load` pour les composants visibles immédiatement
+- Utiliser `client:visible` pour les composants bas de page

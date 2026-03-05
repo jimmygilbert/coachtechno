@@ -1,0 +1,55 @@
+---
+description: Syntaxe Tailwind CSS v4 — différences clés avec v3
+globs: src/**/*.{astro,vue,css}
+alwaysApply: false
+---
+
+# Tailwind CSS v4
+
+Ce projet utilise Tailwind **v4** — la syntaxe est différente de v3.
+
+## CSS global (`global.css`)
+
+```css
+/* ✅ v4 */
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1a56db;
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* ❌ PAS v3 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+## Variables de thème
+
+```css
+/* Définir dans @theme, pas dans extend */
+@theme {
+  --color-brand: #0d9488;
+  --spacing-section: 5rem;
+}
+```
+
+## Classes utilitaires
+
+Les classes sont identiques à v3 dans les templates :
+
+```astro
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-gray-900">Titre</h2>
+  </div>
+</section>
+```
+
+## Règles
+
+- Ne jamais utiliser `@apply` sauf cas exceptionnel justifié
+- Préférer les classes directement dans le template
+- Les valeurs du thème custom via `@theme` dans `global.css`, pas `tailwind.config`
+- Il n'y a pas de `tailwind.config.js` en v4 — tout se configure via CSS
