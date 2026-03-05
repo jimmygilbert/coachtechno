@@ -1,8 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lexend:wght@600;700;800&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --color-brand-50: #eef7ff;
+  --color-brand-100: #d9edff;
+  --color-brand-200: #bbdeff;
+  --color-brand-300: #8ac8ff;
+  --color-brand-400: #52a9ff;
+  --color-brand-500: #2a87ff;
+  --color-brand-600: #1165f5;
+  --color-brand-700: #0a4fe1;
+  --color-brand-800: #0f41b6;
+  --color-brand-900: #133b8f;
+  --color-brand-950: #0f2557;
+
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #ea6c0a;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Lexend', sans-serif;
+}
 
 @layer base {
   html {
