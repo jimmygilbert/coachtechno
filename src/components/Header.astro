@@ -10,15 +10,13 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+<header class="sticky top-0 z-50 bg-surface-800/95 backdrop-blur-sm border-b border-surface-600 shadow-sm">
   <div class="container-site">
     <nav class="flex items-center justify-between h-16">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 font-heading font-bold text-xl text-brand-700">
-        <span class="text-accent-500">Coach</span>Techno
+      <a href="/" class="flex items-center gap-2 font-heading font-bold text-xl text-white">
+        <span class="text-brand-500">Coach</span>Techno
       </a>
 
-      <!-- Desktop nav -->
       <ul class="hidden md:flex items-center gap-1">
         {navLinks.map(link => (
           <li>
@@ -27,8 +25,8 @@ const currentPath = Astro.url.pathname;
               class:list={[
                 'px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150',
                 currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
-                  ? 'bg-brand-50 text-brand-700'
-                  : 'text-gray-600 hover:text-brand-700 hover:bg-gray-50',
+                  ? 'bg-surface-700 text-brand-400'
+                  : 'text-gray-300 hover:text-white hover:bg-surface-700',
               ]}
             >
               {link.label}
@@ -37,15 +35,13 @@ const currentPath = Astro.url.pathname;
         ))}
       </ul>
 
-      <!-- CTA -->
       <a href="/contact" class="hidden md:inline-block btn-primary text-sm">
         Réserver une consultation
       </a>
 
-      <!-- Mobile menu button -->
       <button
         id="mobile-menu-btn"
-        class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100"
+        class="md:hidden p-2 rounded-lg text-gray-300 hover:bg-surface-700"
         aria-label="Menu"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,14 +50,13 @@ const currentPath = Astro.url.pathname;
       </button>
     </nav>
 
-    <!-- Mobile nav -->
-    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-100 pt-3">
+    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-surface-600 pt-3">
       <ul class="flex flex-col gap-1">
         {navLinks.map(link => (
           <li>
             <a
               href={link.href}
-              class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700"
+              class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-surface-700 hover:text-white"
             >
               {link.label}
             </a>

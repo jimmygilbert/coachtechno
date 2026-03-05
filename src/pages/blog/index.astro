@@ -11,10 +11,10 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   description="Articles pratiques sur l'IA pour PME, l'automatisation et les outils numériques. Conseils concrets de Jimmy Gilbert, consultant IA au Québec."
 >
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-brand-950 to-brand-800 text-white section-pad">
+  <section class="bg-surface-900 text-white section-pad">
     <div class="container-site text-center">
       <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Blog</h1>
-      <p class="text-brand-200 text-lg max-w-2xl mx-auto">
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
         Conseils pratiques sur l'IA, l'automatisation et les outils numériques pour PME et professionnels.
       </p>
     </div>
@@ -36,21 +36,21 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
                 {post.data.tags.length > 0 && (
                   <div class="flex flex-wrap gap-2 mb-3">
                     {post.data.tags.slice(0, 2).map((tag: string) => (
-                      <span class="text-xs font-medium bg-brand-50 text-brand-700 px-3 py-1 rounded-full">
+                      <span class="text-xs font-medium bg-brand-500/15 text-brand-400 px-3 py-1 rounded-full">
                         {tag}
                       </span>
                     ))}
                   </div>
                 )}
-                <h2 class="font-heading font-bold text-xl text-gray-900 mb-2 flex-1">
-                  <a href={`/blog/${post.slug}`} class="hover:text-brand-700 transition-colors">
+                <h2 class="font-heading font-bold text-xl text-white mb-2 flex-1">
+                  <a href={`/blog/${post.slug}`} class="hover:text-brand-400 transition-colors">
                     {post.data.title}
                   </a>
                 </h2>
-                <p class="text-gray-600 text-sm mb-4">{post.data.description}</p>
-                <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-                  <time class="text-xs text-gray-400">{formattedDate}</time>
-                  <a href={`/blog/${post.slug}`} class="text-brand-600 text-sm font-medium hover:text-brand-800">
+                <p class="text-gray-400 text-sm mb-4">{post.data.description}</p>
+                <div class="flex items-center justify-between mt-auto pt-4 border-t border-surface-600">
+                  <time class="text-xs text-gray-500">{formattedDate}</time>
+                  <a href={`/blog/${post.slug}`} class="text-brand-400 text-sm font-medium hover:text-brand-300">
                     Lire →
                   </a>
                 </div>
@@ -63,12 +63,12 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   </section>
 
   <!-- CTA -->
-  <section class="section-pad bg-brand-50">
+  <section class="section-pad bg-surface-700">
     <div class="container-site max-w-2xl text-center">
-      <h2 class="text-2xl font-heading font-bold text-gray-900 mb-4">
+      <h2 class="text-2xl font-heading font-bold text-white mb-4">
         Vous voulez implanter ces idées dans votre entreprise?
       </h2>
-      <p class="text-gray-600 mb-6">
+      <p class="text-gray-400 mb-6">
         Réservez un appel gratuit pour discuter de votre situation spécifique.
       </p>
       <a href="/contact" class="btn-primary">Réserver une consultation</a>

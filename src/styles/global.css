@@ -3,21 +3,28 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-brand-50: #eef7ff;
-  --color-brand-100: #d9edff;
-  --color-brand-200: #bbdeff;
-  --color-brand-300: #8ac8ff;
-  --color-brand-400: #52a9ff;
-  --color-brand-500: #2a87ff;
-  --color-brand-600: #1165f5;
-  --color-brand-700: #0a4fe1;
-  --color-brand-800: #0f41b6;
-  --color-brand-900: #133b8f;
-  --color-brand-950: #0f2557;
+  --color-brand-50: #fefce8;
+  --color-brand-100: #fef9c3;
+  --color-brand-200: #fef08a;
+  --color-brand-300: #fde047;
+  --color-brand-400: #facc15;
+  --color-brand-500: #eab308;
+  --color-brand-600: #ca8a04;
+  --color-brand-700: #a16207;
+  --color-brand-800: #854d0e;
+  --color-brand-900: #713f12;
+  --color-brand-950: #422006;
 
-  --color-accent-400: #fb923c;
-  --color-accent-500: #f97316;
-  --color-accent-600: #ea6c0a;
+  --color-accent-400: #22d3ee;
+  --color-accent-500: #06b6d4;
+  --color-accent-600: #0891b2;
+
+  --color-surface-950: #0f172a;
+  --color-surface-900: #1a2233;
+  --color-surface-800: #1e293b;
+  --color-surface-700: #2a3649;
+  --color-surface-600: #334155;
+  --color-surface-500: #475569;
 
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-heading: 'Lexend', sans-serif;
@@ -26,10 +33,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
-    @apply font-sans text-gray-800 bg-white antialiased;
+    @apply font-sans text-gray-100 bg-surface-800 antialiased;
   }
 
   h1, h2, h3, h4 {
@@ -39,23 +47,23 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-block bg-accent-500 hover:bg-accent-600 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200 shadow-md;
+    @apply inline-block bg-brand-500 hover:bg-brand-400 text-surface-950 font-semibold px-6 py-3 rounded-xl transition-colors duration-200 shadow-md;
   }
 
   .btn-secondary {
-    @apply inline-block border-2 border-brand-600 text-brand-700 hover:bg-brand-50 font-semibold px-6 py-3 rounded-xl transition-colors duration-200;
+    @apply inline-block border-2 border-brand-500 text-brand-400 hover:bg-brand-500/10 font-semibold px-6 py-3 rounded-xl transition-colors duration-200;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4;
+    @apply text-3xl md:text-4xl font-heading font-bold text-white mb-4;
   }
 
   .section-subtitle {
-    @apply text-lg text-gray-600 max-w-2xl mx-auto;
+    @apply text-lg text-gray-400 max-w-2xl mx-auto;
   }
 
   .card {
-    @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow duration-200;
+    @apply bg-surface-700 rounded-2xl shadow-sm border border-surface-600 p-6 hover:shadow-md transition-shadow duration-200;
   }
 
   .container-site {

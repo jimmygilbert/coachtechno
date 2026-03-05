@@ -37,6 +37,9 @@ Mettre en place la configuration Cursor, initialiser le dépôt Git, construire 
 - Rédigé le backlog complet : 19 récits utilisateurs (RU1–RU19) et 37 tâches réparties en 9 sections, basé sur les documents `recits_utilisateurs.md`, `architecture.md` et `plan_developpement.md`.
 - Consolidé le journal de bord (4 séances fusionnées en une seule séance cohérente).
 - Refactorisé les 3 composants Vue 3 pour respecter la rule `vue-patterns.mdc` : ordre `<script>` → `<template>` → `<style scoped>`, interfaces TypeScript nommées (`FormData`, `FormErrors`, `FaqItem`, `Props`), pattern try/catch/finally pour les appels async dans `ContactForm.vue`.
+- Migré le site vers un thème sombre permanent : redéfini la palette `brand` (bleu → or/ambre #eab308), `accent` (orange → cyan #22d3ee), créé l'échelle `surface` (950–500) pour les fonds charcoal.
+- Ajouté `color-scheme: dark` sur `html`, changé le body de `bg-white text-gray-800` à `bg-surface-800 text-gray-100`, mis à jour toutes les classes utilitaires (`.btn-primary`, `.btn-secondary`, `.card`, `.section-title`).
+- Migré les 13 fichiers du site vers le dark theme : `Header.astro`, `Footer.astro`, 6 pages, `BlogPostLayout.astro`, et les 3 composants Vue (`ServiceFAQ.vue`, `CtaBanner.vue`, `ContactForm.vue`).
 
 **Difficultés / bugs**  
 - `node_modules` inclus dans le premier commit par erreur ; confusion entre le dépôt racine (branche `2025-12-15-z8ih-2a12a`) et le sous-dépôt `project/` (branche `main`).
@@ -51,6 +54,7 @@ Mettre en place la configuration Cursor, initialiser le dépôt Git, construire 
 - Remplacement de `@astrojs/tailwind` par `@tailwindcss/vite` et migration de la config dans `global.css`.
 - Correction `--font-family-heading` → `--font-heading` pour respecter la convention Tailwind v4.
 - Ajout de `"types": ["astro/client"]` et `"include"` explicite dans `tsconfig.json`.
+- Inventaire exhaustif de toutes les classes de couleur Tailwind dans chaque fichier avant de commencer la migration dark theme.
 
 ---
 

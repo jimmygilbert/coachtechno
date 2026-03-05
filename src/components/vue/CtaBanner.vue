@@ -5,56 +5,28 @@ interface Props {
   cta: string;
   href: string;
   badge?: string;
-  variant?: 'light' | 'dark';
 }
 
-withDefaults(defineProps<Props>(), {
-  variant: 'light',
-});
+defineProps<Props>();
 </script>
 
 <template>
-  <div
-    :class="[
-      'rounded-2xl p-8 text-center transition-all duration-300',
-      variant === 'dark'
-        ? 'bg-brand-950 text-white'
-        : 'bg-brand-50 border border-brand-100',
-    ]"
-  >
+  <div class="rounded-2xl p-8 text-center transition-all duration-300 bg-surface-700 border border-surface-600">
     <p
       v-if="badge"
-      :class="[
-        'inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4',
-        variant === 'dark' ? 'bg-accent-500/20 text-accent-400' : 'bg-brand-100 text-brand-700',
-      ]"
+      class="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4 bg-brand-500/20 text-brand-400"
     >
       {{ badge }}
     </p>
-    <h2
-      :class="[
-        'text-2xl md:text-3xl font-heading font-bold mb-3',
-        variant === 'dark' ? 'text-white' : 'text-gray-900',
-      ]"
-    >
+    <h2 class="text-2xl md:text-3xl font-heading font-bold mb-3 text-white">
       {{ title }}
     </h2>
-    <p
-      :class="[
-        'text-base mb-6 max-w-lg mx-auto',
-        variant === 'dark' ? 'text-brand-200' : 'text-gray-600',
-      ]"
-    >
+    <p class="text-base mb-6 max-w-lg mx-auto text-gray-400">
       {{ subtitle }}
     </p>
     <a
       :href="href"
-      :class="[
-        'inline-block font-semibold px-8 py-3 rounded-xl transition-colors duration-200 shadow-md',
-        variant === 'dark'
-          ? 'bg-accent-500 hover:bg-accent-600 text-white'
-          : 'bg-brand-600 hover:bg-brand-700 text-white',
-      ]"
+      class="inline-block font-semibold px-8 py-3 rounded-xl transition-colors duration-200 shadow-md bg-brand-500 hover:bg-brand-400 text-surface-950"
     >
       {{ cta }}
     </a>

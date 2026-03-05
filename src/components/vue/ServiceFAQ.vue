@@ -47,16 +47,16 @@ function toggle(index: number) {
     <div
       v-for="(item, index) in props.items"
       :key="index"
-      class="border border-gray-200 rounded-xl overflow-hidden"
+      class="border border-surface-600 rounded-xl overflow-hidden"
     >
       <button
         @click="toggle(index)"
-        class="w-full flex items-center justify-between px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors"
+        class="w-full flex items-center justify-between px-6 py-4 text-left bg-surface-800 hover:bg-surface-700 transition-colors"
         :aria-expanded="openIndex === index"
       >
-        <span class="font-medium text-gray-900 pr-4">{{ item.question }}</span>
+        <span class="font-medium text-white pr-4">{{ item.question }}</span>
         <span
-          class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center transition-transform duration-200"
+          class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center transition-transform duration-200"
           :class="{ 'rotate-180': openIndex === index }"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -72,8 +72,8 @@ function toggle(index: number) {
         leave-from-class="opacity-100 max-h-96"
         leave-to-class="opacity-0 max-h-0"
       >
-        <div v-if="openIndex === index" class="px-6 pb-5 bg-white">
-          <p class="text-gray-600 text-sm leading-relaxed">{{ item.answer }}</p>
+        <div v-if="openIndex === index" class="px-6 pb-5 bg-surface-800">
+          <p class="text-gray-400 text-sm leading-relaxed">{{ item.answer }}</p>
         </div>
       </Transition>
     </div>

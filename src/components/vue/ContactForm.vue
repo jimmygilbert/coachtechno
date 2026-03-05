@@ -71,7 +71,6 @@ async function handleSubmit() {
   submitError.value = null;
 
   try {
-    // Simulation d'envoi (à remplacer par un vrai endpoint ou service)
     await new Promise(resolve => setTimeout(resolve, 1200));
     isSuccess.value = true;
 
@@ -94,8 +93,8 @@ async function handleSubmit() {
 <template>
   <form @submit.prevent="handleSubmit" class="space-y-5" novalidate>
     <div>
-      <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
-        Nom complet <span class="text-red-500">*</span>
+      <label for="name" class="block text-sm font-medium text-gray-300 mb-1">
+        Nom complet <span class="text-red-400">*</span>
       </label>
       <input
         id="name"
@@ -103,17 +102,17 @@ async function handleSubmit() {
         type="text"
         autocomplete="name"
         :class="[
-          'w-full px-4 py-3 rounded-xl border text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition',
-          errors.name ? 'border-red-400 bg-red-50' : 'border-gray-300 bg-white',
+          'w-full px-4 py-3 rounded-xl border text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500 transition',
+          errors.name ? 'border-red-500 bg-red-500/10' : 'border-surface-600 bg-surface-700',
         ]"
         placeholder="Votre nom"
       />
-      <p v-if="errors.name" class="mt-1 text-xs text-red-600">{{ errors.name }}</p>
+      <p v-if="errors.name" class="mt-1 text-xs text-red-400">{{ errors.name }}</p>
     </div>
 
     <div>
-      <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-        Courriel <span class="text-red-500">*</span>
+      <label for="email" class="block text-sm font-medium text-gray-300 mb-1">
+        Courriel <span class="text-red-400">*</span>
       </label>
       <input
         id="email"
@@ -121,16 +120,16 @@ async function handleSubmit() {
         type="email"
         autocomplete="email"
         :class="[
-          'w-full px-4 py-3 rounded-xl border text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition',
-          errors.email ? 'border-red-400 bg-red-50' : 'border-gray-300 bg-white',
+          'w-full px-4 py-3 rounded-xl border text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500 transition',
+          errors.email ? 'border-red-500 bg-red-500/10' : 'border-surface-600 bg-surface-700',
         ]"
         placeholder="votre@courriel.com"
       />
-      <p v-if="errors.email" class="mt-1 text-xs text-red-600">{{ errors.email }}</p>
+      <p v-if="errors.email" class="mt-1 text-xs text-red-400">{{ errors.email }}</p>
     </div>
 
     <div>
-      <label for="company" class="block text-sm font-medium text-gray-700 mb-1">
+      <label for="company" class="block text-sm font-medium text-gray-300 mb-1">
         Entreprise
       </label>
       <input
@@ -138,19 +137,19 @@ async function handleSubmit() {
         v-model="form.company"
         type="text"
         autocomplete="organization"
-        class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition"
+        class="w-full px-4 py-3 rounded-xl border border-surface-600 bg-surface-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500 transition"
         placeholder="Nom de votre entreprise (optionnel)"
       />
     </div>
 
     <div>
-      <label for="service" class="block text-sm font-medium text-gray-700 mb-1">
+      <label for="service" class="block text-sm font-medium text-gray-300 mb-1">
         Service qui vous intéresse
       </label>
       <select
         id="service"
         v-model="form.service"
-        class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-500 transition"
+        class="w-full px-4 py-3 rounded-xl border border-surface-600 bg-surface-700 text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition"
       >
         <option value="">Choisissez un service...</option>
         <option value="audit">Audit IA entreprise</option>
@@ -162,36 +161,36 @@ async function handleSubmit() {
     </div>
 
     <div>
-      <label for="message" class="block text-sm font-medium text-gray-700 mb-1">
-        Message <span class="text-red-500">*</span>
+      <label for="message" class="block text-sm font-medium text-gray-300 mb-1">
+        Message <span class="text-red-400">*</span>
       </label>
       <textarea
         id="message"
         v-model="form.message"
         rows="4"
         :class="[
-          'w-full px-4 py-3 rounded-xl border text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-500 transition resize-none',
-          errors.message ? 'border-red-400 bg-red-50' : 'border-gray-300 bg-white',
+          'w-full px-4 py-3 rounded-xl border text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500 transition resize-none',
+          errors.message ? 'border-red-500 bg-red-500/10' : 'border-surface-600 bg-surface-700',
         ]"
         placeholder="Décrivez brièvement votre situation et ce que vous cherchez à accomplir..."
       />
-      <p v-if="errors.message" class="mt-1 text-xs text-red-600">{{ errors.message }}</p>
+      <p v-if="errors.message" class="mt-1 text-xs text-red-400">{{ errors.message }}</p>
     </div>
 
-    <div v-if="submitError" class="bg-red-50 border border-red-200 rounded-xl p-4 text-center">
-      <p class="text-red-800 font-medium">{{ submitError }}</p>
+    <div v-if="submitError" class="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center">
+      <p class="text-red-400 font-medium">{{ submitError }}</p>
     </div>
 
     <button
       type="submit"
       :disabled="isSubmitting || isSuccess"
       :class="[
-        'w-full py-3 px-6 rounded-xl font-semibold text-white transition-all duration-200',
+        'w-full py-3 px-6 rounded-xl font-semibold transition-all duration-200',
         isSuccess
-          ? 'bg-green-500 cursor-default'
+          ? 'bg-green-600 text-white cursor-default'
           : isSubmitting
-            ? 'bg-brand-400 cursor-wait'
-            : 'bg-accent-500 hover:bg-accent-600 shadow-md hover:shadow-lg',
+            ? 'bg-brand-700 text-white cursor-wait'
+            : 'bg-brand-500 hover:bg-brand-400 text-surface-950 shadow-md hover:shadow-lg',
       ]"
     >
       <span v-if="isSuccess">Message envoyé ✓</span>
@@ -199,8 +198,8 @@ async function handleSubmit() {
       <span v-else>Envoyer le message</span>
     </button>
 
-    <div v-if="isSuccess" class="bg-green-50 border border-green-200 rounded-xl p-4 text-center">
-      <p class="text-green-800 font-medium">Merci! Je vous répondrai dans les 24 heures.</p>
+    <div v-if="isSuccess" class="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
+      <p class="text-green-400 font-medium">Merci! Je vous répondrai dans les 24 heures.</p>
     </div>
   </form>
 </template>

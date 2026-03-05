@@ -7,23 +7,23 @@ import MainLayout from '@/layouts/MainLayout.astro';
   description="Jimmy Gilbert aide les PME et professionnels à utiliser l'intelligence artificielle pour sauver du temps et automatiser leur travail. Consultant IA au Québec."
 >
   <!-- 1. Proposition de valeur -->
-  <section class="bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 text-white section-pad">
+  <section class="bg-surface-900 text-white section-pad">
     <div class="container-site text-center">
       <p class="inline-block text-accent-400 font-semibold text-sm uppercase tracking-widest mb-4 bg-accent-500/10 px-4 py-1.5 rounded-full">
         Consultant IA · Québec
       </p>
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 max-w-4xl mx-auto">
         J'aide les PME et professionnels à utiliser l'IA pour
-        <span class="text-accent-400"> sauver du temps</span> et automatiser leur travail.
+        <span class="text-brand-400"> sauver du temps</span> et automatiser leur travail.
       </h1>
-      <p class="text-lg text-brand-200 max-w-2xl mx-auto mb-10">
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
         Audit IA, formation d'équipes, implantation d'automatisations — des solutions concrètes adaptées à votre réalité.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/contact" class="btn-primary text-base px-8 py-4">
           Réserver une consultation
         </a>
-        <a href="/services" class="btn-secondary border-brand-400 text-brand-200 hover:bg-brand-800 text-base px-8 py-4">
+        <a href="/services" class="btn-secondary text-base px-8 py-4">
           Voir les services
         </a>
       </div>
@@ -31,7 +31,7 @@ import MainLayout from '@/layouts/MainLayout.astro';
   </section>
 
   <!-- 2. Problèmes que les entreprises vivent -->
-  <section class="section-pad bg-gray-50">
+  <section class="section-pad bg-surface-700">
     <div class="container-site">
       <div class="text-center mb-12">
         <h2 class="section-title">Vous reconnaissez-vous dans ces situations?</h2>
@@ -48,12 +48,12 @@ import MainLayout from '@/layouts/MainLayout.astro';
         ].map(item => (
           <div class="card text-center">
             <div class="text-4xl mb-4">{item.icon}</div>
-            <h3 class="font-heading font-semibold text-gray-900 mb-2">{item.title}</h3>
-            <p class="text-sm text-gray-600">{item.desc}</p>
+            <h3 class="font-heading font-semibold text-white mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-400">{item.desc}</p>
           </div>
         ))}
       </div>
-      <p class="text-center text-brand-700 font-semibold mt-10 text-lg">
+      <p class="text-center text-brand-400 font-semibold mt-10 text-lg">
         L'IA peut éliminer une partie de ces tâches — concrètement, dès maintenant.
       </p>
     </div>
@@ -92,9 +92,9 @@ import MainLayout from '@/layouts/MainLayout.astro';
         ].map(service => (
           <div class="card flex flex-col">
             <div class="text-4xl mb-4">{service.icon}</div>
-            <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">{service.title}</h3>
-            <p class="text-gray-600 text-sm flex-1 mb-4">{service.desc}</p>
-            <p class="text-brand-700 font-semibold text-sm mb-4">{service.price}</p>
+            <h3 class="font-heading font-bold text-xl text-white mb-3">{service.title}</h3>
+            <p class="text-gray-400 text-sm flex-1 mb-4">{service.desc}</p>
+            <p class="text-brand-400 font-semibold text-sm mb-4">{service.price}</p>
             <a href={service.href} class="btn-secondary text-sm text-center">
               En savoir plus
             </a>
@@ -105,7 +105,7 @@ import MainLayout from '@/layouts/MainLayout.astro';
   </section>
 
   <!-- 4. Cas concrets -->
-  <section class="section-pad bg-brand-50">
+  <section class="section-pad bg-surface-700">
     <div class="container-site">
       <div class="text-center mb-12">
         <h2 class="section-title">Ce que vous pouvez automatiser</h2>
@@ -118,11 +118,11 @@ import MainLayout from '@/layouts/MainLayout.astro';
           { icon: '📁', title: 'Gestion de documents', desc: 'Classement, résumés, extraction d\'information automatisés.' },
           { icon: '💬', title: 'Réponses clients', desc: 'Chatbots, FAQ intelligentes, support automatisé 24/7.' },
         ].map(item => (
-          <div class="flex gap-4 bg-white rounded-2xl p-5 shadow-sm border border-brand-100">
+          <div class="flex gap-4 bg-surface-800 rounded-2xl p-5 shadow-sm border border-surface-600">
             <span class="text-3xl">{item.icon}</span>
             <div>
-              <h3 class="font-heading font-semibold text-gray-900 mb-1">{item.title}</h3>
-              <p class="text-sm text-gray-600">{item.desc}</p>
+              <h3 class="font-heading font-semibold text-white mb-1">{item.title}</h3>
+              <p class="text-sm text-gray-400">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -136,7 +136,7 @@ import MainLayout from '@/layouts/MainLayout.astro';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
           <h2 class="section-title">Pourquoi travailler avec moi</h2>
-          <p class="text-gray-600 mb-8">
+          <p class="text-gray-400 mb-8">
             Je combine pédagogie, technologie, IA et coaching — une combinaison très rare au Québec.
           </p>
           <ul class="space-y-4">
@@ -148,17 +148,17 @@ import MainLayout from '@/layouts/MainLayout.astro';
             ].map(item => (
               <li class="flex gap-3 items-start">
                 <span class="text-2xl">{item.icon}</span>
-                <p class="text-gray-700">{item.text}</p>
+                <p class="text-gray-300">{item.text}</p>
               </li>
             ))}
           </ul>
           <a href="/a-propos" class="btn-secondary mt-8 inline-block">En savoir plus sur mon parcours</a>
         </div>
-        <div class="bg-gradient-to-br from-brand-50 to-brand-100 rounded-3xl p-10 text-center">
+        <div class="bg-surface-700 rounded-3xl p-10 text-center border border-surface-600">
           <div class="text-6xl mb-4">👨‍💻</div>
-          <p class="font-heading font-bold text-2xl text-brand-900 mb-2">Jimmy Gilbert</p>
-          <p class="text-brand-700 font-medium mb-4">Consultant IA · Formateur · Coach technologique</p>
-          <p class="text-sm text-gray-600 italic">
+          <p class="font-heading font-bold text-2xl text-white mb-2">Jimmy Gilbert</p>
+          <p class="text-brand-400 font-medium mb-4">Consultant IA · Formateur · Coach technologique</p>
+          <p class="text-sm text-gray-400 italic">
             "Rendre la technologie accessible aux entreprises, c'est ma mission."
           </p>
         </div>
@@ -167,12 +167,12 @@ import MainLayout from '@/layouts/MainLayout.astro';
   </section>
 
   <!-- 6. CTA final -->
-  <section class="section-pad bg-brand-950 text-white text-center">
+  <section class="section-pad bg-surface-950 text-white text-center">
     <div class="container-site max-w-2xl">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">
         Parlons de votre entreprise
       </h2>
-      <p class="text-brand-200 text-lg mb-8">
+      <p class="text-gray-400 text-lg mb-8">
         Un appel découverte gratuit de 30 minutes pour identifier vos opportunités d'automatisation.
       </p>
       <a href="/contact" class="btn-primary text-base px-10 py-4">

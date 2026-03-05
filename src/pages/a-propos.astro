@@ -7,11 +7,11 @@ import MainLayout from '@/layouts/MainLayout.astro';
   description="Jimmy Gilbert — enseignant en informatique, expert en outils numériques et spécialiste IA pratique. Consultant IA pour PME au Québec."
 >
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-brand-950 to-brand-800 text-white section-pad">
+  <section class="bg-surface-900 text-white section-pad">
     <div class="container-site text-center">
       <div class="text-7xl mb-6">👨‍💻</div>
       <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Jimmy Gilbert</h1>
-      <p class="text-brand-200 text-xl max-w-xl mx-auto">
+      <p class="text-gray-400 text-xl max-w-xl mx-auto">
         Consultant IA · Formateur · Coach technologique
       </p>
     </div>
@@ -42,8 +42,8 @@ import MainLayout from '@/layouts/MainLayout.astro';
           <div class="flex gap-6 items-start">
             <div class="text-4xl flex-shrink-0">{item.icon}</div>
             <div>
-              <h3 class="font-heading font-bold text-xl text-gray-900 mb-2">{item.titre}</h3>
-              <p class="text-gray-600">{item.desc}</p>
+              <h3 class="font-heading font-bold text-xl text-white mb-2">{item.titre}</h3>
+              <p class="text-gray-400">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -52,13 +52,13 @@ import MainLayout from '@/layouts/MainLayout.astro';
   </section>
 
   <!-- Vision -->
-  <section class="section-pad bg-brand-50">
+  <section class="section-pad bg-surface-700">
     <div class="container-site max-w-3xl text-center">
       <h2 class="section-title">Ma vision</h2>
-      <p class="text-xl text-gray-700 leading-relaxed mb-8">
+      <p class="text-xl text-gray-300 leading-relaxed mb-8">
         "Rendre la technologie accessible aux entreprises."
       </p>
-      <p class="text-gray-600 leading-relaxed">
+      <p class="text-gray-400 leading-relaxed">
         Trop d'entreprises laissent de la productivité sur la table parce que la technologie leur semble inaccessible ou trop complexe. Ma mission est de changer ça — en offrant des solutions concrètes, adaptées à la réalité des PME québécoises, sans jargon et sans complexité inutile.
       </p>
     </div>
@@ -80,7 +80,7 @@ import MainLayout from '@/layouts/MainLayout.astro';
         ].map(item => (
           <div class="card text-center">
             <div class="text-4xl mb-3">{item.icon}</div>
-            <p class="font-heading font-bold text-gray-900">{item.label}</p>
+            <p class="font-heading font-bold text-white">{item.label}</p>
           </div>
         ))}
       </div>
@@ -88,10 +88,10 @@ import MainLayout from '@/layouts/MainLayout.astro';
   </section>
 
   <!-- CTA -->
-  <section class="section-pad bg-brand-950 text-white text-center">
+  <section class="section-pad bg-surface-950 text-white text-center">
     <div class="container-site max-w-2xl">
       <h2 class="text-3xl font-heading font-bold mb-4">Discutons de votre projet</h2>
-      <p class="text-brand-200 mb-8">
+      <p class="text-gray-400 mb-8">
         Je serais heureux d'apprendre à connaître votre entreprise et d'explorer comment l'IA peut vous aider.
       </p>
       <a href="/contact" class="btn-primary text-base px-10 py-4">Réserver un appel</a>
