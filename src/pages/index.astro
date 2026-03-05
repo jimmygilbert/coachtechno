@@ -1,0 +1,183 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="Accueil"
+  description="Jimmy Gilbert aide les PME et professionnels à utiliser l'intelligence artificielle pour sauver du temps et automatiser leur travail. Consultant IA au Québec."
+>
+  <!-- 1. Proposition de valeur -->
+  <section class="bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 text-white section-pad">
+    <div class="container-site text-center">
+      <p class="inline-block text-accent-400 font-semibold text-sm uppercase tracking-widest mb-4 bg-accent-500/10 px-4 py-1.5 rounded-full">
+        Consultant IA · Québec
+      </p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 max-w-4xl mx-auto">
+        J'aide les PME et professionnels à utiliser l'IA pour
+        <span class="text-accent-400"> sauver du temps</span> et automatiser leur travail.
+      </h1>
+      <p class="text-lg text-brand-200 max-w-2xl mx-auto mb-10">
+        Audit IA, formation d'équipes, implantation d'automatisations — des solutions concrètes adaptées à votre réalité.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-primary text-base px-8 py-4">
+          Réserver une consultation
+        </a>
+        <a href="/services" class="btn-secondary border-brand-400 text-brand-200 hover:bg-brand-800 text-base px-8 py-4">
+          Voir les services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Problèmes que les entreprises vivent -->
+  <section class="section-pad bg-gray-50">
+    <div class="container-site">
+      <div class="text-center mb-12">
+        <h2 class="section-title">Vous reconnaissez-vous dans ces situations?</h2>
+        <p class="section-subtitle">
+          Ces problèmes sont courants dans les PME. L'IA peut éliminer une grande partie de ces tâches.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { icon: '🔁', title: 'Tâches répétitives', desc: 'Des heures perdues chaque semaine sur des tâches qui pourraient être automatisées.' },
+          { icon: '📋', title: 'Perte de temps administrative', desc: 'Rédaction, classement, suivis — des tâches chronophages qui vous éloignent de l\'essentiel.' },
+          { icon: '🛠️', title: 'Outils mal utilisés', desc: 'Vous avez des outils numériques, mais vous n\'en exploitez pas le plein potentiel.' },
+          { icon: '🤖', title: 'Peur de l\'IA', desc: 'L\'intelligence artificielle semble complexe ou inaccessible pour votre entreprise.' },
+        ].map(item => (
+          <div class="card text-center">
+            <div class="text-4xl mb-4">{item.icon}</div>
+            <h3 class="font-heading font-semibold text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-brand-700 font-semibold mt-10 text-lg">
+        L'IA peut éliminer une partie de ces tâches — concrètement, dès maintenant.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. Services principaux -->
+  <section class="section-pad">
+    <div class="container-site">
+      <div class="text-center mb-12">
+        <h2 class="section-title">Comment je peux vous aider</h2>
+        <p class="section-subtitle">Trois services conçus pour transformer votre façon de travailler.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            icon: '🔍',
+            title: 'Audit IA',
+            desc: 'Analyse complète de vos processus pour identifier les automatisations possibles. Vous recevez un rapport clair avec un plan d\'action.',
+            price: '1 000 $ – 2 000 $',
+            href: '/services#audit',
+          },
+          {
+            icon: '🎓',
+            title: 'Formation IA',
+            desc: 'Formation pratique pour apprendre à utiliser l\'IA dans le travail quotidien. ChatGPT, automatisation, outils IA, cas concrets.',
+            price: '1 500 $ – 4 000 $',
+            href: '/services#formation',
+          },
+          {
+            icon: '⚙️',
+            title: 'Implantation IA',
+            desc: 'Implantation concrète d\'automatisations dans votre entreprise : courriels, agents IA, rédaction, marketing.',
+            price: '3 000 $ – 15 000 $',
+            href: '/services#implantation',
+          },
+        ].map(service => (
+          <div class="card flex flex-col">
+            <div class="text-4xl mb-4">{service.icon}</div>
+            <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">{service.title}</h3>
+            <p class="text-gray-600 text-sm flex-1 mb-4">{service.desc}</p>
+            <p class="text-brand-700 font-semibold text-sm mb-4">{service.price}</p>
+            <a href={service.href} class="btn-secondary text-sm text-center">
+              En savoir plus
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Cas concrets -->
+  <section class="section-pad bg-brand-50">
+    <div class="container-site">
+      <div class="text-center mb-12">
+        <h2 class="section-title">Ce que vous pouvez automatiser</h2>
+        <p class="section-subtitle">Des exemples concrets d'automatisations déployées pour des entreprises.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {[
+          { icon: '✉️', title: 'Rédaction de courriels', desc: 'Réponses automatiques, suivis clients, modèles personnalisés.' },
+          { icon: '📝', title: 'Production de contenu', desc: 'Articles, publications LinkedIn, infolettres générés en minutes.' },
+          { icon: '📁', title: 'Gestion de documents', desc: 'Classement, résumés, extraction d\'information automatisés.' },
+          { icon: '💬', title: 'Réponses clients', desc: 'Chatbots, FAQ intelligentes, support automatisé 24/7.' },
+        ].map(item => (
+          <div class="flex gap-4 bg-white rounded-2xl p-5 shadow-sm border border-brand-100">
+            <span class="text-3xl">{item.icon}</span>
+            <div>
+              <h3 class="font-heading font-semibold text-gray-900 mb-1">{item.title}</h3>
+              <p class="text-sm text-gray-600">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Pourquoi Jimmy Gilbert -->
+  <section class="section-pad">
+    <div class="container-site">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="section-title">Pourquoi travailler avec moi</h2>
+          <p class="text-gray-600 mb-8">
+            Je combine pédagogie, technologie, IA et coaching — une combinaison très rare au Québec.
+          </p>
+          <ul class="space-y-4">
+            {[
+              { icon: '🏫', text: 'Enseignant en informatique — j\'explique simplement des concepts complexes.' },
+              { icon: '🔧', text: 'Expert en outils numériques — je connais ce qui fonctionne vraiment.' },
+              { icon: '🎯', text: 'Approche simple et concrète — pas de jargon, des résultats mesurables.' },
+              { icon: '🏢', text: 'Solutions adaptées aux PME — pas des solutions génériques, mais les vôtres.' },
+            ].map(item => (
+              <li class="flex gap-3 items-start">
+                <span class="text-2xl">{item.icon}</span>
+                <p class="text-gray-700">{item.text}</p>
+              </li>
+            ))}
+          </ul>
+          <a href="/a-propos" class="btn-secondary mt-8 inline-block">En savoir plus sur mon parcours</a>
+        </div>
+        <div class="bg-gradient-to-br from-brand-50 to-brand-100 rounded-3xl p-10 text-center">
+          <div class="text-6xl mb-4">👨‍💻</div>
+          <p class="font-heading font-bold text-2xl text-brand-900 mb-2">Jimmy Gilbert</p>
+          <p class="text-brand-700 font-medium mb-4">Consultant IA · Formateur · Coach technologique</p>
+          <p class="text-sm text-gray-600 italic">
+            "Rendre la technologie accessible aux entreprises, c'est ma mission."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CTA final -->
+  <section class="section-pad bg-brand-950 text-white text-center">
+    <div class="container-site max-w-2xl">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">
+        Parlons de votre entreprise
+      </h2>
+      <p class="text-brand-200 text-lg mb-8">
+        Un appel découverte gratuit de 30 minutes pour identifier vos opportunités d'automatisation.
+      </p>
+      <a href="/contact" class="btn-primary text-base px-10 py-4">
+        Réserver un appel
+      </a>
+    </div>
+  </section>
+</MainLayout>

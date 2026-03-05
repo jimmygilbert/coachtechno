@@ -1,0 +1,97 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import ContactForm from '@/components/vue/ContactForm.vue';
+---
+
+<MainLayout
+  title="Contact"
+  description="Réservez une consultation avec Jimmy Gilbert. Appel découverte gratuit de 30 minutes pour discuter de vos besoins en IA et automatisation."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-950 to-brand-800 text-white section-pad">
+    <div class="container-site text-center">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Parlons de votre entreprise</h1>
+      <p class="text-brand-200 text-lg max-w-xl mx-auto">
+        Réservez un appel découverte gratuit de 30 minutes. Aucun engagement.
+      </p>
+    </div>
+  </section>
+
+  <!-- Options de contact -->
+  <section class="section-pad">
+    <div class="container-site">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Formulaire Vue -->
+        <div>
+          <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6">Envoyez-moi un message</h2>
+          <ContactForm client:load />
+        </div>
+
+        <!-- Infos contact -->
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6">Autres façons de me joindre</h2>
+            <div class="space-y-4">
+              <!-- Calendly placeholder -->
+              <div class="card">
+                <div class="flex items-center gap-4">
+                  <span class="text-3xl">📅</span>
+                  <div>
+                    <p class="font-semibold text-gray-900">Réserver directement</p>
+                    <p class="text-sm text-gray-600 mb-2">Choisissez un créneau dans mon calendrier.</p>
+                    <a
+                      href="https://calendly.com/jimmygilbert"
+                      target="_blank"
+                      rel="noopener"
+                      class="btn-primary text-sm"
+                    >
+                      Ouvrir Calendly
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="flex items-center gap-4">
+                  <span class="text-3xl">💼</span>
+                  <div>
+                    <p class="font-semibold text-gray-900">LinkedIn</p>
+                    <p class="text-sm text-gray-600 mb-2">Connectez-vous avec moi sur LinkedIn.</p>
+                    <a
+                      href="https://linkedin.com/in/jimmygilbert"
+                      target="_blank"
+                      rel="noopener"
+                      class="btn-secondary text-sm"
+                    >
+                      Voir mon profil
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ce à quoi s'attendre -->
+          <div class="bg-brand-50 rounded-2xl p-6">
+            <h3 class="font-heading font-bold text-gray-900 mb-4">Ce à quoi vous attendre</h3>
+            <ul class="space-y-3">
+              {[
+                'Réponse dans les 24 heures',
+                'Appel découverte gratuit de 30 min',
+                'Aucune pression, aucun engagement',
+                'Recommandations personnalisées à votre situation',
+              ].map(item => (
+                <li class="flex items-center gap-2 text-gray-700 text-sm">
+                  <svg class="w-5 h-5 text-brand-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

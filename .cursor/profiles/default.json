@@ -1,0 +1,18 @@
+{
+  "name": "Default",
+  "description": "Profil par défaut pour le développement général du projet",
+  "model": "claude-sonnet-4",
+  "temperature": 0.5,
+  "agentMode": true,
+  "alwaysApply": true,
+  "rules": [
+    ".cursor/rules/architecture-vue.mdc"
+  ],
+  "systemPrompt": "Tu es un développeur Vue 3 + TypeScript expérimenté travaillant sur une application de suivi de bogues. Tu dois respecter l'architecture du projet, utiliser Pinia pour le state management, Vue Router pour la navigation, Bootstrap 5 pour le styling, et Vee-Validate pour les formulaires. Respecte les récits utilisateurs et les bonnes pratiques du projet.",
+  "behavior": {
+    "focus": "general-development",
+    "verbosity": "balanced",
+    "followArchitecture": true,
+    "respectUserStories": true
+  }
+}

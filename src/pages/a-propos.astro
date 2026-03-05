@@ -1,0 +1,100 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="À propos"
+  description="Jimmy Gilbert — enseignant en informatique, expert en outils numériques et spécialiste IA pratique. Consultant IA pour PME au Québec."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-950 to-brand-800 text-white section-pad">
+    <div class="container-site text-center">
+      <div class="text-7xl mb-6">👨‍💻</div>
+      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Jimmy Gilbert</h1>
+      <p class="text-brand-200 text-xl max-w-xl mx-auto">
+        Consultant IA · Formateur · Coach technologique
+      </p>
+    </div>
+  </section>
+
+  <!-- Parcours -->
+  <section class="section-pad">
+    <div class="container-site max-w-3xl">
+      <h2 class="section-title text-center mb-10">Mon parcours</h2>
+      <div class="space-y-8">
+        {[
+          {
+            icon: '🏫',
+            titre: 'Enseignant en informatique',
+            desc: 'Des années d\'enseignement m\'ont appris à expliquer des concepts complexes de façon simple et accessible. Je sais comment les gens apprennent et comment les amener à maîtriser de nouveaux outils.',
+          },
+          {
+            icon: '🔧',
+            titre: 'Expert en outils numériques',
+            desc: 'J\'ai exploré, testé et implanté des dizaines d\'outils numériques dans des contextes variés. Je sais ce qui fonctionne vraiment — et ce qui ne vaut pas votre temps.',
+          },
+          {
+            icon: '🤖',
+            titre: 'Spécialiste IA pratique',
+            desc: 'Je me spécialise dans l\'application concrète de l\'IA en entreprise. Pas la théorie — des automatisations réelles qui sauvent du temps dès la première semaine.',
+          },
+        ].map(item => (
+          <div class="flex gap-6 items-start">
+            <div class="text-4xl flex-shrink-0">{item.icon}</div>
+            <div>
+              <h3 class="font-heading font-bold text-xl text-gray-900 mb-2">{item.titre}</h3>
+              <p class="text-gray-600">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section class="section-pad bg-brand-50">
+    <div class="container-site max-w-3xl text-center">
+      <h2 class="section-title">Ma vision</h2>
+      <p class="text-xl text-gray-700 leading-relaxed mb-8">
+        "Rendre la technologie accessible aux entreprises."
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        Trop d'entreprises laissent de la productivité sur la table parce que la technologie leur semble inaccessible ou trop complexe. Ma mission est de changer ça — en offrant des solutions concrètes, adaptées à la réalité des PME québécoises, sans jargon et sans complexité inutile.
+      </p>
+    </div>
+  </section>
+
+  <!-- Avantage compétitif -->
+  <section class="section-pad">
+    <div class="container-site">
+      <div class="text-center mb-12">
+        <h2 class="section-title">Ce qui me distingue</h2>
+        <p class="section-subtitle">Une combinaison rare au Québec.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+        {[
+          { icon: '📚', label: 'Pédagogie' },
+          { icon: '💻', label: 'Technologie' },
+          { icon: '🤖', label: 'IA' },
+          { icon: '🎯', label: 'Coaching' },
+        ].map(item => (
+          <div class="card text-center">
+            <div class="text-4xl mb-3">{item.icon}</div>
+            <p class="font-heading font-bold text-gray-900">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-pad bg-brand-950 text-white text-center">
+    <div class="container-site max-w-2xl">
+      <h2 class="text-3xl font-heading font-bold mb-4">Discutons de votre projet</h2>
+      <p class="text-brand-200 mb-8">
+        Je serais heureux d'apprendre à connaître votre entreprise et d'explorer comment l'IA peut vous aider.
+      </p>
+      <a href="/contact" class="btn-primary text-base px-10 py-4">Réserver un appel</a>
+    </div>
+  </section>
+</MainLayout>

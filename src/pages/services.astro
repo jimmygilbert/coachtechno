@@ -1,0 +1,123 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import ServiceFAQ from '@/components/vue/ServiceFAQ.vue';
+
+const services = [
+  {
+    id: 'audit',
+    icon: '🔍',
+    title: 'Audit IA entreprise',
+    tagline: 'Découvrez vos opportunités d\'automatisation',
+    description: 'Analyse complète de vos processus d\'entreprise pour identifier les automatisations possibles avec l\'intelligence artificielle.',
+    livrables: ['Rapport détaillé de vos processus', 'Plan d\'action priorisé', 'Recommandations d\'outils IA'],
+    duree: '2 semaines',
+    prix: '1 000 $ – 2 000 $',
+    cta: 'Demander un audit',
+  },
+  {
+    id: 'formation',
+    icon: '🎓',
+    title: 'Formation IA pour équipes',
+    tagline: 'Formez votre équipe aux outils IA',
+    description: 'Formation pratique pour apprendre à utiliser l\'IA dans le travail quotidien. Adaptée à votre secteur et à vos besoins spécifiques.',
+    livrables: ['ChatGPT et outils IA', 'Automatisation de tâches', 'Cas concrets de votre secteur', 'Guide de référence personnalisé'],
+    duree: '3h ou 1 journée',
+    prix: '1 500 $ – 4 000 $',
+    cta: 'Demander une formation',
+  },
+  {
+    id: 'implantation',
+    icon: '⚙️',
+    title: 'Implantation IA',
+    tagline: 'Automatisez concrètement votre entreprise',
+    description: 'Implantation concrète d\'automatisations dans votre entreprise. Des solutions sur mesure qui s\'intègrent à vos outils existants.',
+    livrables: ['Automatisation des courriels', 'Agents IA internes', 'Automatisation de la rédaction', 'Automatisation marketing'],
+    duree: 'Variable selon le projet',
+    prix: '3 000 $ – 15 000 $',
+    cta: 'Discuter de mon projet',
+  },
+];
+---
+
+<MainLayout
+  title="Services"
+  description="Audit IA, formation IA pour équipes et implantation d'automatisations. Des services concrets pour PME et professionnels au Québec."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-950 to-brand-800 text-white section-pad">
+    <div class="container-site text-center">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Mes services</h1>
+      <p class="text-brand-200 text-lg max-w-2xl mx-auto">
+        Trois services complémentaires pour vous aider à intégrer l'IA dans votre entreprise, à votre rythme.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section-pad">
+    <div class="container-site space-y-24">
+      {services.map((service, i) => (
+        <div id={service.id} class:list={['grid grid-cols-1 md:grid-cols-2 gap-12 items-center', i % 2 !== 0 ? 'md:flex-row-reverse' : '']}>
+          <div class:list={[i % 2 !== 0 ? 'md:order-2' : '']}>
+            <p class="text-accent-500 font-semibold text-sm uppercase tracking-widest mb-2">{service.tagline}</p>
+            <h2 class="text-3xl font-heading font-bold text-gray-900 mb-4">
+              <span class="mr-3">{service.icon}</span>{service.title}
+            </h2>
+            <p class="text-gray-600 mb-6">{service.description}</p>
+
+            <div class="mb-6">
+              <p class="font-semibold text-gray-900 mb-3">Ce que vous recevez :</p>
+              <ul class="space-y-2">
+                {service.livrables.map(livrable => (
+                  <li class="flex items-center gap-2 text-gray-700">
+                    <svg class="w-5 h-5 text-brand-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    {livrable}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="flex gap-6 mb-6 text-sm">
+              <div>
+                <p class="text-gray-500">Durée</p>
+                <p class="font-semibold text-gray-900">{service.duree}</p>
+              </div>
+              <div>
+                <p class="text-gray-500">Investissement</p>
+                <p class="font-semibold text-brand-700">{service.prix}</p>
+              </div>
+            </div>
+
+            <a href={`/contact?service=${service.id}`} class="btn-primary">{service.cta}</a>
+          </div>
+
+          <div class:list={['bg-gradient-to-br from-brand-50 to-brand-100 rounded-3xl p-10 text-center', i % 2 !== 0 ? 'md:order-1' : '']}>
+            <div class="text-8xl mb-4">{service.icon}</div>
+            <p class="font-heading font-bold text-xl text-brand-900">{service.title}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-pad bg-gray-50">
+    <div class="container-site max-w-3xl">
+      <div class="text-center mb-12">
+        <h2 class="section-title">Questions fréquentes</h2>
+      </div>
+      <ServiceFAQ client:load />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-pad bg-brand-950 text-white text-center">
+    <div class="container-site max-w-2xl">
+      <h2 class="text-3xl font-heading font-bold mb-4">Pas sûr par où commencer?</h2>
+      <p class="text-brand-200 mb-8">Réservez un appel gratuit de 30 minutes. Je vous aide à identifier la meilleure approche pour votre situation.</p>
+      <a href="/contact" class="btn-primary text-base px-10 py-4">Réserver un appel gratuit</a>
+    </div>
+  </section>
+</MainLayout>
