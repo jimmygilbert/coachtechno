@@ -8,6 +8,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   noIndex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   description = "Jimmy Gilbert aide les PME et professionnels à utiliser l'intelligence artificielle pour sauver du temps et automatiser leur travail.",
   ogImage = '/og-default.jpg',
   noIndex = false,
+  schema,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -47,6 +49,10 @@ const fullTitle = title === 'Accueil' ? 'CoachTechno — Consultant IA pour PME'
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
   </head>
   <body class="flex flex-col min-h-screen">
     <Header />

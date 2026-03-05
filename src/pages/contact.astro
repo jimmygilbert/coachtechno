@@ -1,16 +1,37 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
 import ContactForm from '@/components/vue/ContactForm.vue';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://coachtechno.com';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'CoachTechno',
+  url: siteUrl,
+  description: "Consultant IA pour PME au Québec. Audit IA, formation et implantation d'automatisations.",
+  founder: {
+    '@type': 'Person',
+    name: 'Jimmy Gilbert',
+  },
+  areaServed: { '@type': 'Place', name: 'Québec, Canada' },
+  sameAs: ['https://linkedin.com/in/jimmygilbert'],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    availableLanguage: 'French',
+  },
+};
 ---
 
 <MainLayout
   title="Contact"
-  description="Réservez une consultation avec Jimmy Gilbert. Appel découverte gratuit de 30 minutes pour discuter de vos besoins en IA et automatisation."
+  description="Réservez une consultation gratuite avec Jimmy Gilbert, consultant IA au Québec. Appel découverte de 30 minutes pour discuter de vos besoins en automatisation."
+  schema={schema}
 >
   <!-- Hero -->
   <section class="bg-surface-900 text-white section-pad">
     <div class="container-site text-center">
-      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Parlons de votre entreprise</h1>
+      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Contactez-moi pour une consultation IA gratuite</h1>
       <p class="text-gray-400 text-lg max-w-xl mx-auto">
         Réservez un appel découverte gratuit de 30 minutes. Aucun engagement.
       </p>
@@ -69,7 +90,7 @@ import ContactForm from '@/components/vue/ContactForm.vue';
           </div>
 
           <div class="bg-surface-700 border border-surface-600 rounded-2xl p-6">
-            <h3 class="font-heading font-bold text-white mb-4">Ce à quoi vous attendre</h3>
+            <h3 class="font-heading font-bold text-white mb-4">Ce à quoi s'attendre</h3>
             <ul class="space-y-3">
               {[
                 'Réponse dans les 24 heures',
@@ -86,6 +107,11 @@ import ContactForm from '@/components/vue/ContactForm.vue';
               ))}
             </ul>
           </div>
+
+          <p class="text-gray-500 text-sm mt-6">
+            Consultez mes <a href="/services" class="text-brand-400 hover:text-brand-300">services IA pour PME</a>
+            ou le <a href="/coaching-technologique" class="text-brand-400 hover:text-brand-300">coaching technologique</a> pour en savoir plus.
+          </p>
         </div>
       </div>
     </div>

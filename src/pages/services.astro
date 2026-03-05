@@ -2,6 +2,42 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import ServiceFAQ from '@/components/vue/ServiceFAQ.vue';
 
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://coachtechno.com';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Services IA pour PME',
+  itemListElement: [
+    {
+      '@type': 'Service',
+      position: 1,
+      name: 'Audit IA entreprise',
+      description: "Analyse complète de vos processus d'entreprise pour identifier les automatisations possibles avec l'intelligence artificielle.",
+      url: `${siteUrl}/services#audit`,
+      provider: { '@type': 'Person', name: 'Jimmy Gilbert' },
+      offers: { '@type': 'Offer', priceCurrency: 'CAD', price: '1000' },
+    },
+    {
+      '@type': 'Service',
+      position: 2,
+      name: 'Formation IA pour équipes',
+      description: "Formation pratique pour apprendre à utiliser l'IA dans le travail quotidien.",
+      url: `${siteUrl}/services#formation`,
+      provider: { '@type': 'Person', name: 'Jimmy Gilbert' },
+      offers: { '@type': 'Offer', priceCurrency: 'CAD', price: '1500' },
+    },
+    {
+      '@type': 'Service',
+      position: 3,
+      name: 'Implantation IA',
+      description: "Implantation concrète d'automatisations dans votre entreprise : courriels, agents IA, rédaction, marketing.",
+      url: `${siteUrl}/services#implantation`,
+      provider: { '@type': 'Person', name: 'Jimmy Gilbert' },
+      offers: { '@type': 'Offer', priceCurrency: 'CAD', price: '3000' },
+    },
+  ],
+};
+
 const services = [
   {
     id: 'audit',
@@ -40,13 +76,14 @@ const services = [
 ---
 
 <MainLayout
-  title="Services"
-  description="Audit IA, formation IA pour équipes et implantation d'automatisations. Des services concrets pour PME et professionnels au Québec."
+  title="Services IA et automatisation"
+  description="Audit IA, formation IA pour équipes et implantation d'automatisations. Des services concrets pour aider les PME et professionnels du Québec à gagner du temps."
+  schema={schema}
 >
   <!-- Hero -->
   <section class="bg-surface-900 text-white section-pad">
     <div class="container-site text-center">
-      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Mes services</h1>
+      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Services IA et automatisation</h1>
       <p class="text-gray-400 text-lg max-w-2xl mx-auto">
         Trois services complémentaires pour vous aider à intégrer l'IA dans votre entreprise, à votre rythme.
       </p>
@@ -118,6 +155,10 @@ const services = [
       <h2 class="text-3xl font-heading font-bold mb-4">Pas sûr par où commencer?</h2>
       <p class="text-gray-400 mb-8">Réservez un appel gratuit de 30 minutes. Je vous aide à identifier la meilleure approche pour votre situation.</p>
       <a href="/contact" class="btn-primary text-base px-10 py-4">Réserver un appel gratuit</a>
+      <p class="text-gray-500 text-sm mt-6">
+        Vous êtes travailleur autonome? Découvrez le <a href="/coaching-technologique" class="text-brand-400 hover:text-brand-300">coaching technologique</a>.
+        Consultez aussi nos <a href="/blog" class="text-brand-400 hover:text-brand-300">articles sur l'IA</a>.
+      </p>
     </div>
   </section>
 </MainLayout>

@@ -40,6 +40,12 @@ Mettre en place la configuration Cursor, initialiser le dépôt Git, construire 
 - Migré le site vers un thème sombre permanent : redéfini la palette `brand` (bleu → or/ambre #eab308), `accent` (orange → cyan #22d3ee), créé l'échelle `surface` (950–500) pour les fonds charcoal.
 - Ajouté `color-scheme: dark` sur `html`, changé le body de `bg-white text-gray-800` à `bg-surface-800 text-gray-100`, mis à jour toutes les classes utilitaires (`.btn-primary`, `.btn-secondary`, `.card`, `.section-title`).
 - Migré les 13 fichiers du site vers le dark theme : `Header.astro`, `Footer.astro`, 6 pages, `BlogPostLayout.astro`, et les 3 composants Vue (`ServiceFAQ.vue`, `CtaBanner.vue`, `ContactForm.vue`).
+- Réalisé un audit SEO complet sur les 7 pages du site. Identifié 6 problèmes critiques (absence totale de données structurées JSON-LD) et 8 problèmes mineurs (H1 trop génériques, meta descriptions courtes, liens internes insuffisants).
+- Ajouté le support JSON-LD dans `MainLayout.astro` via une prop `schema` optionnelle qui injecte un `<script type="application/ld+json">` dans le `<head>`.
+- Ajouté les données structurées sur chaque page : `ProfessionalService` (accueil), `ItemList` de 3 `Service` (services), `Service` (coaching), `Person` (à propos), `LocalBusiness` (contact), `Article` dynamique (articles de blog).
+- Amélioré les H1 pour inclure les mots-clés SEO : « Services IA et automatisation », « Jimmy Gilbert, consultant IA », « Contactez-moi pour une consultation IA gratuite », « Blog — IA et automatisation pour PME ».
+- Allongé les meta descriptions de `services`, `a-propos` et `contact` pour atteindre la cible de 150-160 caractères.
+- Ajouté des liens internes croisés dans les sections CTA de `services`, `coaching-technologique`, `a-propos` et `contact` pour améliorer le maillage interne.
 
 **Difficultés / bugs**  
 - `node_modules` inclus dans le premier commit par erreur ; confusion entre le dépôt racine (branche `2025-12-15-z8ih-2a12a`) et le sous-dépôt `project/` (branche `main`).

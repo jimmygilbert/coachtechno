@@ -1,6 +1,22 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
 
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://coachtechno.com';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Coaching technologique',
+  description: 'Coaching technologique personnalisé pour travailleurs autonomes, consultants et professionnels. Automatisation, outils numériques, stratégie IA.',
+  url: `${siteUrl}/coaching-technologique`,
+  provider: {
+    '@type': 'Person',
+    name: 'Jimmy Gilbert',
+    jobTitle: 'Consultant IA',
+  },
+  areaServed: { '@type': 'Place', name: 'Québec, Canada' },
+  offers: { '@type': 'Offer', priceCurrency: 'CAD', price: '750' },
+};
+
 const packages = [
   {
     heures: 5,
@@ -26,6 +42,7 @@ const packages = [
 <MainLayout
   title="Coaching technologique"
   description="Coaching technologique personnalisé pour travailleurs autonomes, consultants et professionnels. Automatisation, outils numériques, stratégie IA."
+  schema={schema}
 >
   <!-- Hero -->
   <section class="bg-surface-900 text-white section-pad">
@@ -134,6 +151,10 @@ const packages = [
         Réservez un appel gratuit de 30 minutes pour discuter de vos objectifs.
       </p>
       <a href="/contact" class="btn-primary text-base px-10 py-4">Réserver un appel</a>
+      <p class="text-gray-500 text-sm mt-6">
+        Vous avez une équipe? Consultez nos <a href="/services" class="text-brand-400 hover:text-brand-300">services IA pour PME</a>.
+        Lisez aussi nos <a href="/blog" class="text-brand-400 hover:text-brand-300">articles pratiques</a>.
+      </p>
     </div>
   </section>
 </MainLayout>

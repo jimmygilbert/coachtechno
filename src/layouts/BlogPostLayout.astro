@@ -9,9 +9,33 @@ interface Props {
 const { post } = Astro.props;
 const { title, description, pubDate, tags } = post.data;
 const formattedDate = pubDate.toLocaleDateString('fr-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://coachtechno.com';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  author: {
+    '@type': 'Person',
+    name: 'Jimmy Gilbert',
+    url: `${siteUrl}/a-propos`,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'CoachTechno',
+    url: siteUrl,
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `${siteUrl}/blog/${post.slug}`,
+  },
+  ...(tags?.length && { keywords: tags.join(', ') }),
+};
 ---
 
-<MainLayout title={title} description={description}>
+<MainLayout title={title} description={description} schema={schema}>
   <article class="container-site section-pad max-w-3xl">
     <header class="mb-10">
       {tags && (

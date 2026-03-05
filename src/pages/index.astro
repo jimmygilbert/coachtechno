@@ -1,10 +1,30 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
+
+const siteUrl = Astro.site?.toString() ?? 'https://coachtechno.com';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'CoachTechno',
+  url: siteUrl,
+  description: "Consultant IA pour PME au Québec. Audit IA, formation d'équipes et implantation d'automatisations.",
+  provider: {
+    '@type': 'Person',
+    name: 'Jimmy Gilbert',
+    jobTitle: 'Consultant IA',
+  },
+  areaServed: {
+    '@type': 'Place',
+    name: 'Québec, Canada',
+  },
+  serviceType: ['Audit IA', 'Formation IA', 'Implantation IA', 'Coaching technologique'],
+};
 ---
 
 <MainLayout
   title="Accueil"
   description="Jimmy Gilbert aide les PME et professionnels à utiliser l'intelligence artificielle pour sauver du temps et automatiser leur travail. Consultant IA au Québec."
+  schema={schema}
 >
   <!-- 1. Proposition de valeur -->
   <section class="bg-surface-900 text-white section-pad">

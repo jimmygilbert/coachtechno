@@ -1,16 +1,33 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://coachtechno.com';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Jimmy Gilbert',
+  jobTitle: 'Consultant IA',
+  url: `${siteUrl}/a-propos`,
+  description: "Enseignant en informatique, expert en outils numériques et spécialiste IA pratique. Consultant IA pour PME au Québec.",
+  knowsAbout: ['Intelligence artificielle', 'Automatisation', 'Outils numériques', 'Coaching technologique'],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'CoachTechno',
+    url: siteUrl,
+  },
+};
 ---
 
 <MainLayout
   title="À propos"
-  description="Jimmy Gilbert — enseignant en informatique, expert en outils numériques et spécialiste IA pratique. Consultant IA pour PME au Québec."
+  description="Jimmy Gilbert — enseignant en informatique, expert en outils numériques et spécialiste IA pratique. Consultant IA pour PME et professionnels au Québec."
+  schema={schema}
 >
   <!-- Hero -->
   <section class="bg-surface-900 text-white section-pad">
     <div class="container-site text-center">
       <div class="text-7xl mb-6">👨‍💻</div>
-      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Jimmy Gilbert</h1>
+      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Jimmy Gilbert, consultant IA</h1>
       <p class="text-gray-400 text-xl max-w-xl mx-auto">
         Consultant IA · Formateur · Coach technologique
       </p>
@@ -95,6 +112,10 @@ import MainLayout from '@/layouts/MainLayout.astro';
         Je serais heureux d'apprendre à connaître votre entreprise et d'explorer comment l'IA peut vous aider.
       </p>
       <a href="/contact" class="btn-primary text-base px-10 py-4">Réserver un appel</a>
+      <p class="text-gray-500 text-sm mt-6">
+        Découvrez mes <a href="/services" class="text-brand-400 hover:text-brand-300">services IA pour PME</a>
+        ou lisez mes <a href="/blog" class="text-brand-400 hover:text-brand-300">articles sur l'IA</a>.
+      </p>
     </div>
   </section>
 </MainLayout>
